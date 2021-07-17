@@ -1,0 +1,49 @@
+{% load static%}  
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="{% static '1.css'%}">
+<body>
+    <div class="navbar">
+        Hi,{{user.first_name}}
+        <li class="navbar_inner"> <a href="home">home</a> </li>
+        Callus:7989650114 
+        </div>
+        <hr>
+        <table border="2">
+            <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>username</th>
+                <th>Status</th>
+                </tr>
+    {% if user.is_superuser %}
+    <h2>Admin pannel(All orders)</h2>
+        {% for order1 in order %}
+            <tr>
+                <td>{{order1.item}}</td>
+                <td>{{order1.quantity}}</td>
+                <td>{{order1.username}}</td>
+                <td>{{order1.status}}</td>
+                </tr>
+            {% endfor %}
+    {% else%}
+        {% for order1 in order %}
+            {% ifequal order1.username user.first_name %}
+                <tr>
+                <td>{{order1.item}}</td>
+                <td>{{order1.quantity}}</td>
+                <td>{{order1.username}}</td>
+                <td>{{order1.status}}</td>
+                </tr>
+            {% else %}
+            {% endifequal %}
+        {% endfor %} 
+    {% endif %}
+</table>
+</body>
+</html>

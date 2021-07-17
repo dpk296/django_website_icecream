@@ -1,0 +1,86 @@
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="{% static '1.css'%}">
+<body>
+    
+    <div class="navbar">
+    {% if user.is_authenticated %}
+   <div class="n1">
+    Hi,{{user.first_name}}
+</div>
+        {% block after_login %}
+        
+        {% endblock after_login %}
+   
+{% else %}
+    <li class="navbar_inner"> <a href="home">home</a> </li>
+    <li class="navbar_inner"> <a href="login">Login</a> </li>
+    <li class="navbar_inner"> <a href="register">Register</a> </li>
+
+    </div>
+
+    <!-- item1 -->
+<div class="forbgcolor">
+    <div class="items">
+    <div>
+    <img width="250px" height="250px" src="{% static 'images/image1.jpg'%}" alt="ice cream"  >
+</div>
+
+<div >
+    <h3>Choclate IceCream</h3>
+    
+</div>
+</div>
+
+<!-- item2 -->
+<div class="items">
+    <div>
+    <img width="250px" src="{% static 'images/image2.jpg'%}" alt="ice cream"  >
+</div>
+
+<div class="dsc">
+    <h3>Vennela IceCream </h3>
+</div>
+</div>
+
+<!-- item3 -->
+
+<div class="items">
+    <div>
+    <img width="250px" src="{% static 'images/image3.jpg'%}" alt="ice cream"  >
+</div>
+
+<div >
+    <h3>ButterScotch IceCream</h3>
+</div>
+</div>
+
+
+<!-- item4 -->
+
+<div class="items">
+    <div>
+    <img width="250px" height="250px" src="{% static 'images/image4.jpg'%}" alt="ice cream"  >
+</div>
+
+<div >
+    <h3>All Mix IceCream</h3>
+</div>
+</div>
+</div>
+
+<a href="login" class="before_login_intimation">Login to check Or Buy the product</a>
+
+    {% endif %}
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+{% extends '1.html'%}
+{% load static%}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body >
+    {% block after_login %}
+    
+    <div class="after_login">
+        <li><a href="buy" class="navbar_inner">Buy</a></li>
+        <li><a href="orders" class="navbar_inner">orders </a></li>
+        <!-- <li><a href="makeadeal">Make a deal</a></li> -->
+        <li><a href="logout" class="navbar_inner">logout</a></li>
+    </div>
+
+    <!-- item1 -->
+<div class="forbgcolor">
+    <div class="items">
+    <div>
+    <img width="250px" height="250px" src="{% static 'images/image1.jpg'%}" alt="ice cream"  >
+</div>
+<div >
+    <h3>Choclate IceCream</h3>
+    <form action="buy1" method="post">
+        {% csrf_token %}
+        <input type="number" name="item1_quantity" placeholder="Quantity" style="width: 50px;">
+        <button type="submit" name="item1" value="choclate icream">Buy</button>
+        <input type="text" class="disabel" value="{{user.first_name}}" name="username" >
+  </form>
+</div>
+</div>
+
+<!-- item2 -->
+<div class="items">
+    <div>
+    <img width="250px" src="{% static 'images/image2.jpg'%}" alt="ice cream"  >
+</div>
+<div class="dsc">
+    <h3>Vennela IceCream </h3>
+    <form action="buy1" method="post">
+        {% csrf_token %}
+        <input type="number" name="item1_quantity" placeholder="Quantity" style="width: 50px;">
+        <button type="submit" name="item1" value="Vennela icream">Buy</button>
+        <input type="text" class="disabel" value="{{user.first_name}}" name="username" >
+  </form>
+  </div>
+</div>
+
+<!-- item3 -->
+
+<div class="items">
+    <div>
+    <img width="250px" src="{% static 'images/image3.jpg'%}" alt="ice cream"  >
+</div>
+
+<div >
+    <h3>ButterScotch IceCream</h3>
+    <form action="buy1" method="post">
+        {% csrf_token %}
+        <input type="number" name="item1_quantity" placeholder="Quantity" style="width: 50px;">
+        <button type="submit" name="item1" value="ButterScotch icream">Buy</button>
+        <input type="text" class="disabel" value="{{user.first_name}}" name="username" >
+  </form>
+</div>
+</div>
+
+
+<!-- item4 -->
+
+<div class="items">
+    <div>
+    <img width="250px" height="250px" src="{% static 'images/image4.jpg'%}" alt="ice cream"  >
+</div>
+
+<div >
+    <h3>All Mix IceCream</h3>
+    <form action="buy1" method="post">
+        {% csrf_token %}
+        <input type="number" name="item1_quantity" placeholder="Quantity" style="width: 50px;">
+        <button type="submit" name="item1" value="All Mix icream">Buy</button>
+        <input type="text" class="disabel" value="{{user.first_name}}" name="username" >
+  </form>
+</div>
+</div>
+</div>
+
+
+{% endblock after_login %}
+
+
+</body>
+</html>

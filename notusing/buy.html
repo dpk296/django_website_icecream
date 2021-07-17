@@ -1,0 +1,38 @@
+{% load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<link rel="stylesheet" href="{% static '1.css'%}">
+<body>
+    <div class="navbar">
+        Hi,{{user.first_name}}
+        <li class="navbar_inner"> <a href="home">home</a> </li>
+        Callus:7989650114 
+        </div>
+    <div class="buy1" >
+        <form action="buy" method="post" >
+            {% csrf_token %}
+            <h1>Item you want To Buy</h1>
+        <input type="text" placeholder="item" name="item" value="{{name}}"> <br> 
+        <!-- <select name="item" id="item">
+            <option value="item">select</option>
+            <option value="Biscute">Biscute</option>
+            <option value="choclate">choclate</option>
+            <option value="Ice cream">Ice cream</option>
+        </select> <br> -->
+        <input type="number" placeholder="Quantity" name="quantity"><br>
+        <input type="number" placeholder="Phonenumber" name="phonenumber"> <br>
+    <input type="text" name="username" class="disabel" value="{{user.first_name}}" > <br>
+        <input type="submit" value="Submit">
+    </form>
+    </div>
+    {%for message in messages%}
+    {{message}} 
+    {%endfor%}
+
+</body>
+</html>
